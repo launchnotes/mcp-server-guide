@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "launchnotes": {
+      "type": "http",
+      "url": "https://mcp.launchnotes.com/mcp"
+    }
+  }
+}
