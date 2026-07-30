@@ -48,13 +48,12 @@ Sign in through your browser when prompted — the connection runs as **you**, w
 
 ### Cursor
 
-Add the MCP server in **Cursor → Settings → Cursor Settings → MCP → + Add new global MCP server**, then save:
+Add the MCP server in **Cursor → Customize → MCPs → Add**, then save:
 
 ```json
 {
   "mcpServers": {
     "launchnotes": {
-      "type": "http",
       "url": "https://mcp.launchnotes.com/mcp"
     }
   }
