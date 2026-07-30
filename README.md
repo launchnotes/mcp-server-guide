@@ -1,6 +1,6 @@
 # LaunchNotes MCP Server Guide
 
-Bring LaunchNotes into your AI assistant. Connect the LaunchNotes MCP server and your agent can draft announcements, manage your roadmap, triage feedback, and style your page — from Claude, Cursor, or any MCP client, in your own voice.
+Bring LaunchNotes into your AI assistant. Connect the LaunchNotes MCP server and your agent can turn shipped work into announcements, keep your public roadmap up to date, and measure how updates land — from Claude, Cursor, or any MCP client, in your own voice.
 
 This repo is the install surface: the MCP connection plus a set of **skills** — pre-built playbooks that teach your agent how to run the LaunchNotes jobs that matter, so you describe the outcome and it runs the sequence.
 
@@ -35,9 +35,43 @@ Skills live in [`skills/`](./skills) — each is a folder with a `SKILL.md` (and
 
 ## Installation
 
-> 🚧 **Coming soon.** The one-install plugin — MCP + all skills in a single step, for Claude and Cursor — is in progress ([LN-8922](https://linear.app/launchnotes/issue/LN-8922)). Until then, the underlying tools are available through the existing LaunchNotes MCP server: **[launchnotes/mcp](https://github.com/launchnotes/mcp)**.
+One install gives your agent the LaunchNotes **tools** and all the **skills**. Pick your client.
 
-Once the plugin ships, this section will cover one-step setup for Claude Code, Claude Desktop, and Cursor.
+### Claude Code
+
+```shell
+/plugin marketplace add launchnotes/mcp-server-guide
+/plugin install launchnotes@launchnotes
+```
+
+Sign in through your browser when prompted — the connection runs as **you**, with your real LaunchNotes permissions. Skills load automatically; just describe an outcome (see [Prompting your assistant](#prompting-your-assistant)).
+
+### Cursor
+
+Add the MCP server in **Cursor → Settings → Cursor Settings → MCP → + Add new global MCP server**, then save:
+
+```json
+{
+  "mcpServers": {
+    "launchnotes": {
+      "type": "http",
+      "url": "https://mcp.launchnotes.com/mcp"
+    }
+  }
+}
+```
+
+Sign in through your browser when prompted — this gives you the tools today. This repo also ships a `.cursor-plugin/` manifest so the skills travel with the plugin; one-command install in Cursor lands as we finalize Cursor distribution.
+
+### Claude Desktop / claude.ai — tools only
+
+Add LaunchNotes as a **custom connector** pointing at:
+
+```
+https://mcp.launchnotes.com/mcp
+```
+
+Sign in through your browser when prompted. Connectors carry the **tools** but not the skills — for the full one-install experience (tools + skills), use Claude Code. _(If you want the skills on claude.ai too, they can be added manually as a ZIP upload.)_
 
 ## Prompting your assistant
 

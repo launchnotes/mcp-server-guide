@@ -1,0 +1,23 @@
+{
+  "name": "launchnotes",
+  "displayName": "LaunchNotes",
+  "version": "0.1.0",
+  "description": "Bring LaunchNotes into your AI assistant — draft your announcements, turn feedback into roadmap items, and recap how your launches land, in your own voice.",
+  "author": {
+    "name": "LaunchNotes"
+  },
+  "logo": "./ln-logo.svg",
+  "homepage": "https://github.com/launchnotes/mcp-server-guide",
+  "repository": "https://github.com/launchnotes/mcp-server-guide",
+  "keywords": [
+    "launchnotes",
+    "changelog",
+    "release-notes",
+    "roadmap",
+    "announcements",
+    "product-updates",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
