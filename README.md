@@ -61,7 +61,7 @@ Add the MCP server in **Cursor → Settings → Cursor Settings → MCP → + Ad
 }
 ```
 
-Sign in through your browser when prompted — this gives you the tools today. This repo also ships a `.cursor-plugin/` manifest so the skills travel with the plugin; one-command install in Cursor lands as we finalize Cursor distribution.
+Sign in through your browser when prompted — this gives you the tools today. This repo also ships a `.cursor-plugin/` manifest so the skills travel with the plugin; one-command install in Cursor is coming as we finalize Cursor distribution.
 
 ### Claude Desktop / claude.ai — tools only
 
