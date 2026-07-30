@@ -1,6 +1,6 @@
 # LaunchNotes page colors → what each variable controls
 
-Source of truth: the app's "Match your brand" extractor (the-goat `backend/app/services/brand_color_extractor.rb`) + customize-page field captions (`LookAndFeel.tsx`). Visual map: https://help.launchnotes.com/en/articles/5431322-look-feel-accent-surface-and-type-colors
+Source of truth: LaunchNotes' in-app "Match your brand" color extractor and the customize-page field labels. Visual map: https://help.launchnotes.com/en/articles/5431322-look-feel-accent-surface-and-type-colors
 
 The public page is ALWAYS light-themed, even if the brand's own site is dark.
 

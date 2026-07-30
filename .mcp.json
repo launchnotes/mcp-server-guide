@@ -2,7 +2,11 @@
   "mcpServers": {
     "launchnotes": {
       "type": "http",
-      "url": "https://mcp.launchnotes.com/mcp"
+      "url": "https://mcp.launchnotes.com/mcp",
+      "_meta": {
+        "ideToolIconPath": "./ln-logo-mono.svg",
+        "ideToolIconRendersAsTemplate": true
+      }
     }
   }
 }
