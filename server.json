@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.launchnotes/mcp",
+  "title": "LaunchNotes",
+  "description": "Create and manage LaunchNotes announcements, roadmaps, and feedback",
+  "version": "0.4.1",
+  "websiteUrl": "https://www.launchnotes.com",
+  "repository": {
+    "url": "https://github.com/launchnotes/mcp-server-guide",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.launchnotes.com/mcp"
+    }
+  ]
+}
