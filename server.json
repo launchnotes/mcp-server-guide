@@ -3,7 +3,7 @@
   "name": "io.github.launchnotes/mcp",
   "title": "LaunchNotes",
   "description": "Create and manage LaunchNotes announcements, roadmaps, and feedback",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "websiteUrl": "https://www.launchnotes.com",
   "repository": {
     "url": "https://github.com/launchnotes/mcp-server-guide",
