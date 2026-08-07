@@ -13,12 +13,14 @@ This repo is the install surface: the MCP connection plus a set of **skills** �
 - **Categories** — list a project's categories and assign them to announcements and roadmap items.
 - **Search** — find announcements, roadmap items, and ideas by topic, across the whole project.
 - **Analytics** — top announcements by engagement, and a project snapshot (subscriber counts, feedback sentiment). Aggregate only, no personal data.
-- **Feedback** — search and read reader feedback.
+- **Feedback** — search, read, and organize feedback under announcements, roadmap items, or ideas.
 - **Page & brand** — set colors, page content, and features (feedback, roadmap, ideas, RSS, voting).
 
 ## Installation
 
 Pick your client. **Installing the plugin gives your agent the tools _and_ all the skills**; a bare MCP connection gives tools only.
+
+Prefer a walkthrough? [Connect AI assistants to your LaunchNotes workspace](https://help.launchnotes.com/en/articles/13567825-how-do-i-connect-ai-assistants-to-my-launchnotes-workspace) covers the same steps in more detail, plus legacy API tokens and rate limits. On a Claude Team or Enterprise plan, your workspace owner may need to approve the connector first — [here's what they'll need](https://help.launchnotes.com/en/articles/16204893-how-do-i-approve-the-launchnotes-mcp-connector-for-my-organization).
 
 ### Claude Code
 
@@ -35,7 +37,7 @@ Install the plugin (tools + skills) — requires a paid plan (Pro, Max, Team, or
 
 1. In Claude's settings, go to **Customize → Plugins**.
 2. Click **Add → Add marketplace → Add from a repository**.
-3. Paste `https://github.com/launchnotes/mcp-server-guide` and click **Sync**. (Leave **Sync automatically** on to pick up future updates.)
+3. Paste `https://github.com/launchnotes/mcp-server-guide` and click **Sync**.
 4. Open the **LaunchNotes** plugin that appears and click **Install** (the **+**).
 5. Sign in through your browser when prompted.
 
@@ -92,6 +94,12 @@ Skills come with the **plugin**, so how they arrive depends on your client: **Cl
 | **`launchnotes-import-existing-changelog`** | Bring an existing changelog or blog into LaunchNotes, as drafts or a dated backfill. |
 
 Skills live in [`skills/`](./skills) — each is a folder with a `SKILL.md` (and optional reference files). They're plain markdown: no code, and they run on **your own agent**, never LaunchNotes' AI.
+
+**Getting updates.** We improve these skills regularly.
+
+- **Claude Code** refreshes in the background when you start a session. To pull immediately: `/plugin marketplace update launchnotes` then `/plugin update launchnotes`.
+- **Claude Desktop / claude.ai** — go to **Customize → Plugins → LaunchNotes** and click **Update**.
+- **Cursor** installs are a local git clone, so there's no marketplace update: `git pull` in the clone you created at install time, then **Developer: Reload Window**. If you used the *skills only* copy method rather than the symlink, re-run the `cp -R` after pulling.
 
 ## Prompting your assistant
 
