@@ -29,6 +29,8 @@ not available via MCP. Don't reference or reuse its name.
 
 ## 2. Safety spine (applies to every skill)
 
+- Confirm the project first. Resolve with launchnotes_list_projects — if there's one, use it;
+  if there's more than one and the user hasn't named it, ask.
 - Draft-first. Create and edit freely; treat anything customer-visible as
   publish-on-confirmation only.
 - State the notification posture, then confirm. Before you publish, schedule, post a roadmap
@@ -57,6 +59,10 @@ keep what should stay. A new object's set is empty, so a first assignment is saf
   project. Anything else is rejected with a reason (and would be invisible anyway).
 - Categories are assign-by-ID (launchnotes_list_categories); you can't create categories
   here, so never invent one.
+- Draft links aren't returned on create. launchnotes_create_announcement gives you an ID only.
+  Call launchnotes_get_announcement and hand back the Private URL — it opens in LaunchNotes
+  whether or not the announcement is published; the Public URL doesn't resolve until it is.
+  Never build a link from the slug.
 
 ## 5. Be honest about limits
 

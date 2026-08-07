@@ -4,9 +4,9 @@ description: >
   Use when the user wants to turn reader feedback into roadmap items — e.g. "what are people
   asking for, and put the top themes on the roadmap", "cluster last month's feedback into
   roadmap items". Searches feedback, groups it into themes, proposes work items, and creates
-  the approved ones — categorized, in a chosen stage. Proposes before creating. For reporting
-  on feedback sentiment without creating items, use launchnotes-release-recap. Load
-  launchnotes-use first.
+  the approved ones — categorized, in a chosen stage — and files the backing feedback under
+  them. Proposes before creating. For reporting on feedback sentiment without creating items,
+  use launchnotes-release-recap. Load launchnotes-use first.
 ---
 
 # Turn feedback into a roadmap
@@ -19,12 +19,18 @@ Zendesk) to widen the input beyond LaunchNotes feedback.
 ## Steps
 
 1. Gather with launchnotes_search_feedback — by topic (query), sentiment, importance, or date.
+   Pass organized_state: 'unorganized' — you can't disturb triage you never touched.
 2. Cluster into themes on the feedback content, sentiment, and importance. There's no category
    field on feedback, so group by what's said, not by tags.
 3. Propose, don't create. Present the themes — each with a proposed work-item name, a one-line
-   rationale, and how many feedback items back it. Wait for the user to pick.
+   rationale, and the feedback IDs behind it, not just a count — step 4b needs them. Wait for
+   the user to pick.
 4. Create the approved items with launchnotes_create_work_item — set stage_id and category_ids
    in the same call (launchnotes_list_categories / launchnotes_list_stages for IDs).
+
+   4b. Organize. For each approved theme, call launchnotes_organize_feedback once with that
+   theme's feedback_ids, target_type: 'work_item', and the ID from step 4. The tool takes a
+   list — one call per theme, not per item.
 5. Summarize what you created and where.
 
 ## Guardrails (specific to this skill)

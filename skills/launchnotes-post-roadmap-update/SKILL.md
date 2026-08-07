@@ -24,8 +24,9 @@ launchnotes_project_search / launchnotes_list_work_items).
    (subscribers + team members) and display_timeline.
 2. Draft a short update: title + plain-text content, in the user's voice. If it implies a
    stage change ("now in development"), pick the new_stage_id (launchnotes_list_stages).
-3. State the exact effect and confirm — e.g. "this emails 25 subscribers and 1 team member and
-   posts to your public roadmap." Require an explicit yes. Two traps to call out:
+3. State the exact effect and confirm — e.g. "this emails 25 subscribers and 1 team member,
+   posts to your public roadmap, and moves the item to Shipped." Name the stage move too; it
+   changes what's public. Require an explicit yes. Two traps to call out:
    - If display_timeline is off, emails still go out but nothing shows publicly.
    - Trial-plan orgs skip the emails (the post still happens).
 4. Post with launchnotes_post_roadmap_update (work_item_id, title, content, new_stage_id?,
