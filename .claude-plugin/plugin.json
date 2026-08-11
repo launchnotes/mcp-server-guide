@@ -1,7 +1,7 @@
 {
   "name": "launchnotes",
   "description": "Bring LaunchNotes into your AI assistant — draft your announcements, turn feedback into roadmap items, and recap how your launches land, in your own voice.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "LaunchNotes"
   },
