@@ -97,8 +97,8 @@ Skills live in [`skills/`](./skills) — each is a folder with a `SKILL.md` (and
 
 **Getting updates.** We improve these skills regularly.
 
-- **Claude Code** refreshes in the background when you start a session. To pull immediately: `/plugin marketplace update launchnotes` then `/plugin update launchnotes`.
-- **Claude Desktop / claude.ai** — go to **Customize → Plugins → LaunchNotes** and click **Update**.
+- **Claude Code** — `/plugin marketplace update launchnotes`, then `/plugin update launchnotes@launchnotes`. Takes effect in your next session; a new terminal tab is enough.
+- **Claude Desktop / claude.ai** — **Customize → Plugins → LaunchNotes → Update**. A Claude bug currently leaves that button disabled; until it's fixed, remove and re-add the LaunchNotes plugin from the same screen — just the plugin, not your connector. You'll sign in again; nothing else changes.
 - **Cursor** installs are a local git clone, so there's no marketplace update: `git pull` in the clone you created at install time, then **Developer: Reload Window**. If you used the *skills only* copy method rather than the symlink, re-run the `cp -R` after pulling.
 
 ## Prompting your assistant

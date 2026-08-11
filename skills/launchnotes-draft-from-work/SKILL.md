@@ -1,19 +1,16 @@
 ---
 name: launchnotes-draft-from-work
 description: >
-  Use this skill whenever the user wants to turn shipped or in-progress work from an issue
-  tracker into a LaunchNotes announcement — e.g. "draft an announcement for what we shipped
-  this week", "write up the 2.4 release from Jira", "announce LIN-1234", "turn these merged
-  GitHub PRs into a release note", "we just finished the billing revamp, let's tell
-  customers". Pulls the relevant work from whatever tracker is connected (Jira, Linear,
-  GitHub, ClickUp), drafts a publish-ready announcement in the user's voice, categorizes it,
-  links it to its roadmap item, and attaches the source issues as references — always leaving
-  it as a draft for review. Start here when the subject is tracker issues/PRs; if the subject
-  is an existing roadmap item, use launchnotes-ship-the-roadmap. Do NOT use this to backfill
-  an existing changelog (use launchnotes-import-existing-changelog) or to report on how an
-  announcement performed (use launchnotes-release-recap).
-  Load the launchnotes-use skill first — it supplies the house voice and the draft-first
-  safety rules this skill depends on.
+  Use when the user wants to turn shipped or in-progress work from an issue tracker into a
+  LaunchNotes announcement — e.g. "draft an announcement for what we shipped this week",
+  "write up the 2.4 release from Jira", "turn these merged GitHub PRs into a release note".
+  Pulls the work from whatever tracker is connected (Jira, Linear, GitHub, ClickUp), drafts a
+  publish-ready announcement in the user's voice, categorizes it, links it to its roadmap item,
+  and attaches the source issues — always leaving it as a draft for review. Start here when the
+  subject is tracker issues/PRs; if it's an existing roadmap item, use
+  launchnotes-ship-the-roadmap. Not for backfilling a changelog (use
+  launchnotes-import-existing-changelog) or reporting on how an announcement performed (use
+  launchnotes-release-recap). Load launchnotes-use first.
 ---
 
 # Draft a LaunchNotes announcement from tracker work
