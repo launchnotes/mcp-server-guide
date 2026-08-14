@@ -45,7 +45,20 @@ Prefer just the tools? Add a **custom connector** pointing at `https://mcp.launc
 
 ### Cursor
 
-**Tools** — Add the MCP server in **Cursor → Customize → MCPs → Add**:
+Install the plugin (tools + skills) either way — both give you the same thing:
+
+**One click, from the directory** — open [cursor.directory/plugins/launchnotes](https://cursor.directory/plugins/launchnotes) and click **Add to Cursor**.
+
+**Or from this repo, inside Cursor:**
+
+1. Go to **Customize → Plugins**.
+2. Open the source dropdown and pick **Add Marketplace → Import from Github**.
+3. Paste `https://github.com/launchnotes/mcp-server-guide`.
+4. Install the **LaunchNotes** plugin that appears.
+
+Sign in through your browser when prompted — the connection runs as **you**, with your real LaunchNotes permissions.
+
+Prefer just the tools? Add the MCP server directly in **Customize → MCPs → Add** — you'll get the tools without the skills:
 
 ```json
 {
@@ -57,30 +70,9 @@ Prefer just the tools? Add a **custom connector** pointing at `https://mcp.launc
 }
 ```
 
-Sign in through your browser when prompted.
-
-**Skills** — the MCP connection above doesn't include skills. Until one-click install lands in the Cursor Marketplace, add them manually with one of these:
-
-- **Full plugin (tools + skills together):**
-  ```bash
-  git clone https://github.com/launchnotes/mcp-server-guide
-  mkdir -p ~/.cursor/plugins/local
-  ln -s "$(pwd)/mcp-server-guide" ~/.cursor/plugins/local/launchnotes
-  ```
-  Then run **Developer: Reload Window** in Cursor. This bundles the tools too, so you can skip the **Tools** step above — you'll still sign in when prompted.
-- **Skills only (if you already added the tools above):**
-  ```bash
-  git clone https://github.com/launchnotes/mcp-server-guide
-  mkdir -p ~/.cursor/skills
-  cp -R mcp-server-guide/skills/* ~/.cursor/skills/
-  ```
-  Then reload Cursor. Skills appear in **Customize → Skills**.
-
-_One-click install from the Cursor Marketplace is coming._
-
 ## Skills
 
-Skills come with the **plugin**, so how they arrive depends on your client: **Claude Code** installs them automatically, **Claude Desktop / claude.ai** get them when you install the plugin, and in **Cursor** you add them with the manual step above. Each one loads itself when the moment fits. Start with **`launchnotes-use`** — it's the foundation the others build on (your voice, the safety rules, how the objects behave).
+Skills come with the **plugin**, so you get them wherever you install it — **Claude Code**, **Claude Desktop / claude.ai**, or **Cursor**. Each one loads itself when the moment fits. Start with **`launchnotes-use`** — it's the foundation the others build on (your voice, the safety rules, how the objects behave).
 
 | Skill | What it does |
 |---|---|
@@ -99,7 +91,7 @@ Skills live in [`skills/`](./skills) — each is a folder with a `SKILL.md` (and
 
 - **Claude Code** — `/plugin marketplace update launchnotes`, then `/plugin update launchnotes@launchnotes`. Takes effect in your next session; a new terminal tab is enough.
 - **Claude Desktop / claude.ai** — **Customize → Plugins → LaunchNotes → Update**. A Claude bug currently leaves that button disabled; until it's fixed, remove and re-add the LaunchNotes plugin from the same screen — just the plugin, not your connector. You'll sign in again; nothing else changes.
-- **Cursor** installs are a local git clone, so there's no marketplace update: `git pull` in the clone you created at install time, then **Developer: Reload Window**. If you used the *skills only* copy method rather than the symlink, re-run the `cp -R` after pulling.
+- **Cursor** — **Customize → Plugins → LaunchNotes → Update**. If you imported this repo as a marketplace and left **Auto Refresh** on, updates arrive on their own.
 
 ## Prompting your assistant
 
