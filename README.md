@@ -20,23 +20,17 @@ This repo is the install surface: the MCP connection plus a set of **skills** �
 
 ## Installation
 
-**The plugin gives your agent the tools _and_ the skills; a connector gives the tools only.** The two directory listings differ on exactly this: the [Cursor listing](https://cursor.directory/plugins/launchnotes) is the full plugin, while the [Claude listing](https://claude.ai/directory/launchnotes) is the connector. To get skills in Claude Desktop or claude.ai, install the plugin from this repo — steps below.
-
-However you install, the connection runs as **you** — your LaunchNotes account, your real permissions.
+Pick your client. However you install, the connection runs as **you** — your LaunchNotes account, your real permissions.
 
 Prefer a walkthrough? [Connect AI assistants to your LaunchNotes workspace](https://help.launchnotes.com/en/articles/13567825-how-do-i-connect-ai-assistants-to-my-launchnotes-workspace) covers the same steps in more detail, plus legacy API tokens and rate limits. On a Claude Team or Enterprise plan, your workspace owner may need to approve the connector first — [here's what they'll need](https://help.launchnotes.com/en/articles/16204893-how-do-i-approve-the-launchnotes-mcp-connector-for-my-organization).
 
 ### Claude Desktop / claude.ai
 
-Install the plugin — requires a paid plan (Pro, Max, Team, or Enterprise):
+**1. Install the connector.** Open [claude.ai/directory/launchnotes](https://claude.ai/directory/launchnotes), or find **LaunchNotes** in **Customize → Connectors → Discover**. Your agent now has the LaunchNotes tools.
 
-1. In Claude's settings, go to **Customize → Plugins**.
-2. Click **Add**, choose **Add marketplace**, and paste `https://github.com/launchnotes/mcp-server-guide`.
-3. Click the **+** on the **LaunchNotes** plugin that appears.
+**2. Add the plugin for the skills.** Go to **Customize → Plugins**, click **Add**, choose **Add marketplace**, and paste `https://github.com/launchnotes/mcp-server-guide`. Click the **+** on the **LaunchNotes** plugin that appears. Requires a paid plan (Pro, Max, Team, or Enterprise).
 
-To confirm it took, check **Customize → Plugins → Yours** — **LaunchNotes** will be listed under the marketplace you added. If it isn't there, you have the connector rather than the plugin, and you won't get the skills.
-
-Just the tools? Install the connector from [claude.ai/directory/launchnotes](https://claude.ai/directory/launchnotes), or find it in **Customize → Connectors → Discover** and search for **LaunchNotes**. You can also add a custom connector pointing at `https://mcp.launchnotes.com/mcp`.
+The skills are what teach your agent how your team uses those tools — your voice, the draft-first rules, which steps a job actually takes. Confirm the plugin installed under **Customize → Plugins → Yours**.
 
 ### Claude Code
 
@@ -47,26 +41,7 @@ Run these **one at a time** — the first registers the marketplace, the second 
 
 ### Cursor
 
-**One click, from the directory** — open [cursor.directory/plugins/launchnotes](https://cursor.directory/plugins/launchnotes) and click **Add to Cursor**, or search for **LaunchNotes** in **Customize → Plugins**.
-
-**Or from this repo, inside Cursor:**
-
-1. Go to **Customize → Plugins**.
-2. Open the source dropdown and pick **Add Marketplace → Import from Github**.
-3. Paste `https://github.com/launchnotes/mcp-server-guide`.
-4. Install the **LaunchNotes** plugin that appears.
-
-Just the tools? Add the MCP server directly in **Customize → MCPs → Add**:
-
-```json
-{
-  "mcpServers": {
-    "launchnotes": {
-      "url": "https://mcp.launchnotes.com/mcp"
-    }
-  }
-}
-```
+Open [cursor.directory/plugins/launchnotes](https://cursor.directory/plugins/launchnotes) and click **Add to Cursor**, or search for **LaunchNotes** in **Customize** and add it from the Marketplace results. Either way you get the MCP server and all eight skills together.
 
 ## Skills
 
