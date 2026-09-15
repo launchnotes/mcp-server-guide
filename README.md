@@ -2,6 +2,8 @@
 
 Bring LaunchNotes into your AI assistant. Connect the LaunchNotes MCP server and your agent can turn shipped work into announcements, keep your public roadmap up to date, and measure how updates land — from Claude, Cursor, or any MCP client, in your own voice.
 
+The LaunchNotes MCP server is **generally available**. It's listed in the [Claude connector directory](https://claude.ai/directory/launchnotes) and the [Cursor plugin directory](https://cursor.directory/plugins/launchnotes).
+
 This repo is the install surface: the MCP connection plus a set of **skills** — pre-built playbooks that teach your agent how to run the LaunchNotes jobs that matter, so you describe the outcome and it runs the sequence.
 
 > **Skills teach your AI assistant how your team turns work into announcements, a roadmap, and a branded page — reliably, and in your own voice.** Without them, you'd walk the assistant through every step each time; with them, you just say _"draft an announcement for what we shipped this week"_ and it already knows where to look and how you write. And because your assistant already has your other work open — your issue tracker, your docs, your analytics — a skill teaches it to pull from those and hand you a polished draft, never publishing anything without your go-ahead.
@@ -18,9 +20,23 @@ This repo is the install surface: the MCP connection plus a set of **skills** �
 
 ## Installation
 
-Pick your client. **Installing the plugin gives your agent the tools _and_ all the skills**; a bare MCP connection gives tools only.
+**The plugin gives your agent the tools _and_ the skills; a connector gives the tools only.** The two directory listings differ on exactly this: the [Cursor listing](https://cursor.directory/plugins/launchnotes) is the full plugin, while the [Claude listing](https://claude.ai/directory/launchnotes) is the connector. To get skills in Claude Desktop or claude.ai, install the plugin from this repo — steps below.
+
+However you install, the connection runs as **you** — your LaunchNotes account, your real permissions.
 
 Prefer a walkthrough? [Connect AI assistants to your LaunchNotes workspace](https://help.launchnotes.com/en/articles/13567825-how-do-i-connect-ai-assistants-to-my-launchnotes-workspace) covers the same steps in more detail, plus legacy API tokens and rate limits. On a Claude Team or Enterprise plan, your workspace owner may need to approve the connector first — [here's what they'll need](https://help.launchnotes.com/en/articles/16204893-how-do-i-approve-the-launchnotes-mcp-connector-for-my-organization).
+
+### Claude Desktop / claude.ai
+
+Install the plugin — requires a paid plan (Pro, Max, Team, or Enterprise):
+
+1. In Claude's settings, go to **Customize → Plugins**.
+2. Click **Add**, choose **Add marketplace**, and paste `https://github.com/launchnotes/mcp-server-guide`.
+3. Click the **+** on the **LaunchNotes** plugin that appears.
+
+To confirm it took, check **Customize → Plugins → Yours** — **LaunchNotes** will be listed under the marketplace you added. If it isn't there, you have the connector rather than the plugin, and you won't get the skills.
+
+Just the tools? Install the connector from [claude.ai/directory/launchnotes](https://claude.ai/directory/launchnotes), or find it in **Customize → Connectors → Discover** and search for **LaunchNotes**. You can also add a custom connector pointing at `https://mcp.launchnotes.com/mcp`.
 
 ### Claude Code
 
@@ -29,25 +45,9 @@ Run these **one at a time** — the first registers the marketplace, the second 
 1. `/plugin marketplace add launchnotes/mcp-server-guide`
 2. `/plugin install launchnotes@launchnotes`
 
-Sign in through your browser when prompted — the connection runs as **you**, with your real LaunchNotes permissions. Tools + skills, done.
-
-### Claude Desktop / claude.ai
-
-Install the plugin (tools + skills) — requires a paid plan (Pro, Max, Team, or Enterprise):
-
-1. In Claude's settings, go to **Customize → Plugins**.
-2. Click **Add → Add marketplace → Add from a repository**.
-3. Paste `https://github.com/launchnotes/mcp-server-guide` and click **Sync**.
-4. Open the **LaunchNotes** plugin that appears and click **Install** (the **+**).
-5. Sign in through your browser when prompted.
-
-Prefer just the tools? Add a **custom connector** pointing at `https://mcp.launchnotes.com/mcp` — connectors carry the tools but not the skills.
-
 ### Cursor
 
-Install the plugin (tools + skills) either way — both give you the same thing:
-
-**One click, from the directory** — open [cursor.directory/plugins/launchnotes](https://cursor.directory/plugins/launchnotes) and click **Add to Cursor**.
+**One click, from the directory** — open [cursor.directory/plugins/launchnotes](https://cursor.directory/plugins/launchnotes) and click **Add to Cursor**, or search for **LaunchNotes** in **Customize → Plugins**.
 
 **Or from this repo, inside Cursor:**
 
@@ -56,9 +56,7 @@ Install the plugin (tools + skills) either way — both give you the same thing:
 3. Paste `https://github.com/launchnotes/mcp-server-guide`.
 4. Install the **LaunchNotes** plugin that appears.
 
-Sign in through your browser when prompted — the connection runs as **you**, with your real LaunchNotes permissions.
-
-Prefer just the tools? Add the MCP server directly in **Customize → MCPs → Add** — you'll get the tools without the skills:
+Just the tools? Add the MCP server directly in **Customize → MCPs → Add**:
 
 ```json
 {
@@ -72,7 +70,7 @@ Prefer just the tools? Add the MCP server directly in **Customize → MCPs → A
 
 ## Skills
 
-Skills come with the **plugin**, so you get them wherever you install it — **Claude Code**, **Claude Desktop / claude.ai**, or **Cursor**. Each one loads itself when the moment fits. Start with **`launchnotes-use`** — it's the foundation the others build on (your voice, the safety rules, how the objects behave).
+Skills come with the **plugin**, so you get them wherever you install it — **Claude Desktop / claude.ai**, **Claude Code**, or **Cursor**. Each one loads itself when the moment fits. Start with **`launchnotes-use`** — it's the foundation the others build on (your voice, the safety rules, how the objects behave).
 
 | Skill | What it does |
 |---|---|
@@ -89,8 +87,8 @@ Skills live in [`skills/`](./skills) — each is a folder with a `SKILL.md` (and
 
 **Getting updates.** We improve these skills regularly.
 
-- **Claude Code** — `/plugin marketplace update launchnotes`, then `/plugin update launchnotes@launchnotes`. Takes effect in your next session; a new terminal tab is enough.
 - **Claude Desktop / claude.ai** — **Customize → Plugins → LaunchNotes → Update**. A Claude bug currently leaves that button disabled; until it's fixed, remove and re-add the LaunchNotes plugin from the same screen — just the plugin, not your connector. You'll sign in again; nothing else changes.
+- **Claude Code** — `/plugin marketplace update launchnotes`, then `/plugin update launchnotes@launchnotes`. Takes effect in your next session; a new terminal tab is enough.
 - **Cursor** — **Customize → Plugins → LaunchNotes → Update**. If you imported this repo as a marketplace and left **Auto Refresh** on, updates arrive on their own.
 
 ## Prompting your assistant
