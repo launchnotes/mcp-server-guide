@@ -22,7 +22,11 @@ enough to find it via launchnotes_project_search / launchnotes_list_work_items).
 ## Steps
 
 1. Read the item first with launchnotes_get_work_item — its content, current categories, and
-   linked announcements. You'll reuse these and avoid wiping them.
+   linked announcements. You'll reuse these and avoid wiping them. Shipped work isn't
+   necessarily visible to customers yet: if a flag tool is connected, or the item mentions a
+   flag, look for the flag behind this work and check its production rollout (ask the user if
+   no tool is connected). If there is one, tell the user so they can decide how to frame the
+   announcement; if not, carry on.
 2. Draft the announcement in the user's voice, benefit-first, reusing the item's content and
    categories. launchnotes_list_categories if you need IDs; create it as a draft with
    launchnotes_create_announcement.
