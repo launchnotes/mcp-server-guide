@@ -4,8 +4,8 @@ description: >
   Use when the user wants to turn shipped or in-progress work into a LaunchNotes
   announcement — e.g. "draft an announcement for what we shipped this week",
   "write up the 2.4 release from Jira", "turn these merged GitHub PRs into a release note".
-  Pulls the work from whatever sources are connected, like Jira, Linear, GitHub, ClickUp, and
-  feature-flag tools like LaunchDarkly, PostHog, etc., drafts a publish-ready announcement in
+  Pulls the work from whatever sources are connected (trackers like Jira, Linear, GitHub,
+  ClickUp, and flag tools like LaunchDarkly or PostHog), drafts a publish-ready announcement in
   the user's voice, categorizes it, links it to its roadmap item, and attaches the source
   issues — always leaving it as a draft for review. Start here when the subject is issues,
   PRs, or flags; if it's an existing roadmap item, use
@@ -21,7 +21,7 @@ gathering, judgment, and drafting; the user publishes.
 
 Requires: the launchnotes-use skill loaded, a tracker MCP connected (Jira, Linear, GitHub,
 or ClickUp), and a target LaunchNotes project. If a feature-flag tool is connected
-(LaunchDarkly, PostHog, etc.), use it: shipped work isn't necessarily visible to customers
+(LaunchDarkly, PostHog, etc.), check it: shipped work isn't necessarily visible to customers
 until its flag is on. If no tracker is connected, ask the user to paste the work items rather
 than guessing.
 
@@ -29,9 +29,10 @@ than guessing.
 
 1. Gather the work the user pointed at — by milestone, label, date range, or explicit IDs.
    Don't assume "shipped"; they may want to announce in-progress work. If a flag tool is
-   connected, or the work mentions or links to a flag, check its production rollout and tell
-   the user so they can decide how to frame it. If the selection is broad, confirm the list
-   before drafting.
+   connected, or the work mentions a flag, look for the flag behind this work and check its
+   production rollout (ask the user if no tool is connected). If there is one, tell the user so
+   they can decide how to frame it; if not, carry on. If the selection is broad, confirm the
+   list before drafting.
 2. De-duplicate. Run launchnotes_project_search to check whether any of this work was already
    announced. Flag likely duplicates and ask before creating another post.
 3. Decide the shape. Default to one roundup announcement for related items; split into

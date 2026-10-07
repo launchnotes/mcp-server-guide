@@ -25,8 +25,9 @@ launchnotes_project_search / launchnotes_list_work_items).
 2. Draft a short update: title + plain-text content, in the user's voice. If it implies a
    stage change ("now in development"), pick the new_stage_id (launchnotes_list_stages). If it
    says the work shipped, remember it may still be behind a feature flag: if a flag tool is
-   connected, or the item mentions or links to a flag, check its production rollout and tell
-   the user so they can decide how to frame it.
+   connected, or the item mentions a flag, look for the flag behind this work and check its
+   production rollout (ask the user if no tool is connected). If there is one, tell the user so
+   they can decide how to frame it; if not, carry on.
 3. State the exact effect and confirm — e.g. "this emails 25 subscribers and 1 team member,
    posts to your public roadmap, and moves the item to Shipped." Name the stage move too; it
    changes what's public. Require an explicit yes. Two traps to call out:

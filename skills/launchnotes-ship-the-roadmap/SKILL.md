@@ -22,17 +22,18 @@ enough to find it via launchnotes_project_search / launchnotes_list_work_items).
 ## Steps
 
 1. Read the item first with launchnotes_get_work_item — its content, current categories, and
-   linked announcements. You'll reuse these and avoid wiping them.
+   linked announcements. You'll reuse these and avoid wiping them. Shipped work isn't
+   necessarily visible to customers yet: if a flag tool is connected, or the item mentions a
+   flag, look for the flag behind this work and check its production rollout (ask the user if
+   no tool is connected). If there is one, tell the user so they can decide how to frame the
+   announcement; if not, carry on.
 2. Draft the announcement in the user's voice, benefit-first, reusing the item's content and
    categories. launchnotes_list_categories if you need IDs; create it as a draft with
    launchnotes_create_announcement.
 3. Link them with launchnotes_update_announcement (work_item_ids). New announcement → empty
    set, so safe; include any existing links you read in step 1 if editing.
 4. Confirm the stage move. Tell the user which published stage the item will move to and that
-   it becomes publicly visible. Shipped work isn't necessarily visible to customers yet: if a
-   flag tool is connected, or the item mentions or links to a flag, check its production
-   rollout and tell the user so they can decide how to frame it. On an explicit yes,
-   launchnotes_move_work_item.
+   it becomes publicly visible. On an explicit yes, launchnotes_move_work_item.
 5. Hand back the draft link and the item's new stage. Publish/schedule the announcement only
    on a further explicit yes.
 
