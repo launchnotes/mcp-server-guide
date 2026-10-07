@@ -50,7 +50,7 @@ Skills come with the **plugin**, so you get them wherever you install it — **C
 | Skill | What it does |
 |---|---|
 | **`launchnotes-use`** | Foundation — loads first, everywhere. Establishes your voice, the draft-first safety rules, and how LaunchNotes objects behave. |
-| **`launchnotes-draft-from-work`** | Turn shipped or in-progress work from your issue tracker (Jira, Linear, GitHub, ClickUp) into a publish-ready announcement draft. |
+| **`launchnotes-draft-from-work`** | Turn shipped or in-progress work from your issue tracker (Jira, Linear, GitHub, ClickUp) and feature-flag tools (LaunchDarkly, PostHog, etc.) into a publish-ready announcement draft. |
 | **`launchnotes-ship-the-roadmap`** | Take a finished roadmap item public: draft its announcement, link the two, and advance its stage. |
 | **`launchnotes-post-roadmap-update`** | Post a progress update to a roadmap item's timeline and notify the people following it. |
 | **`launchnotes-feedback-to-roadmap`** | Cluster reader feedback into themes and turn the approved ones into roadmap items. |

@@ -1,13 +1,14 @@
 ---
 name: launchnotes-draft-from-work
 description: >
-  Use when the user wants to turn shipped or in-progress work from an issue tracker into a
-  LaunchNotes announcement — e.g. "draft an announcement for what we shipped this week",
+  Use when the user wants to turn shipped or in-progress work into a LaunchNotes
+  announcement — e.g. "draft an announcement for what we shipped this week",
   "write up the 2.4 release from Jira", "turn these merged GitHub PRs into a release note".
-  Pulls the work from whatever tracker is connected (Jira, Linear, GitHub, ClickUp), drafts a
-  publish-ready announcement in the user's voice, categorizes it, links it to its roadmap item,
-  and attaches the source issues — always leaving it as a draft for review. Start here when the
-  subject is tracker issues/PRs; if it's an existing roadmap item, use
+  Pulls the work from whatever sources are connected, like Jira, Linear, GitHub, ClickUp, and
+  feature-flag tools like LaunchDarkly, PostHog, etc., drafts a publish-ready announcement in
+  the user's voice, categorizes it, links it to its roadmap item, and attaches the source
+  issues — always leaving it as a draft for review. Start here when the subject is issues,
+  PRs, or flags; if it's an existing roadmap item, use
   launchnotes-ship-the-roadmap. Not for backfilling a changelog (use
   launchnotes-import-existing-changelog) or reporting on how an announcement performed (use
   launchnotes-release-recap). Load launchnotes-use first.
@@ -19,14 +20,18 @@ Turn completed (or about-to-ship) work into a ready-to-review announcement. You 
 gathering, judgment, and drafting; the user publishes.
 
 Requires: the launchnotes-use skill loaded, a tracker MCP connected (Jira, Linear, GitHub,
-or ClickUp), and a target LaunchNotes project. If no tracker is connected, ask the user to
-paste the work items rather than guessing.
+or ClickUp), and a target LaunchNotes project. If a feature-flag tool is connected
+(LaunchDarkly, PostHog, etc.), use it: shipped work isn't necessarily visible to customers
+until its flag is on. If no tracker is connected, ask the user to paste the work items rather
+than guessing.
 
 ## Steps
 
 1. Gather the work the user pointed at — by milestone, label, date range, or explicit IDs.
-   Don't assume "shipped"; they may want to announce in-progress work. If the selection is
-   broad, confirm the list before drafting.
+   Don't assume "shipped"; they may want to announce in-progress work. If a flag tool is
+   connected, or the work mentions or links to a flag, check its production rollout and tell
+   the user so they can decide how to frame it. If the selection is broad, confirm the list
+   before drafting.
 2. De-duplicate. Run launchnotes_project_search to check whether any of this work was already
    announced. Flag likely duplicates and ask before creating another post.
 3. Decide the shape. Default to one roundup announcement for related items; split into
