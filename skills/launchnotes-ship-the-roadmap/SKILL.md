@@ -29,7 +29,10 @@ enough to find it via launchnotes_project_search / launchnotes_list_work_items).
 3. Link them with launchnotes_update_announcement (work_item_ids). New announcement → empty
    set, so safe; include any existing links you read in step 1 if editing.
 4. Confirm the stage move. Tell the user which published stage the item will move to and that
-   it becomes publicly visible. On an explicit yes, launchnotes_move_work_item.
+   it becomes publicly visible. Shipped work isn't necessarily visible to customers yet: if a
+   flag tool is connected, or the item mentions or links to a flag, check its production
+   rollout and tell the user so they can decide how to frame it. On an explicit yes,
+   launchnotes_move_work_item.
 5. Hand back the draft link and the item's new stage. Publish/schedule the announcement only
    on a further explicit yes.
 
